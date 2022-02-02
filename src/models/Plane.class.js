@@ -4,7 +4,6 @@ import Grass from '../resources/img/grass.jpg';
 
 export class Plane extends Object {
     constructor(size = {width: 10, depth: 10}, pos = {x: 0, y: 0, z: 0}, color){
-        console.log('=================' + color);
         super();
         this.castShadow = false;
         this.geometry = new THREE.PlaneGeometry(size.width, size.depth);

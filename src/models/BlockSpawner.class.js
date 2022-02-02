@@ -17,7 +17,7 @@ export class BlockSpawner {
     // plane.addToScene(window.scene);
 
     for (var i = 1; i <= this.amount; i++) {
-      console.log(i);
+      // console.log(i);
       var x = this.pos.posx + Math.round(Math.random() * this.size.width);
       var y = this.pos.posy + Math.round(Math.random() * this.size.depth);
       var colorIndex = Math.ceil(Math.random() * 3);

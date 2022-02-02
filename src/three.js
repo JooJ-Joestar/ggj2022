@@ -79,13 +79,13 @@ window.buildings.unshift(building1, building2);
 const blockSpawner = new BlockSpawner({ posx: -11, posy: -16, posz: 0.5 }, { width: 24, depth: 12 });
 
 window.buildObjects.forEach(object => {
-  console.log(object);
+  // console.log(object);
   scene.add(object);
 });
 
 // console.log(window.objects);
 // console.log(window.pickableEntities);
-console.log(window.buildings);
+// console.log(window.buildings);
 
 function animate() {
   requestAnimationFrame(animate);

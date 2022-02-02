@@ -50,9 +50,12 @@ export class Player extends TestCube {
     }
     
     window.buildings.forEach((building, key) => {
-      if(this.objetoCarregado == null) return; // Necessário checar aqui e antes do foreach, por questão de lógica. Estou com preguiça de explicar, qualquer coisa me pergunte
-        // no meu email jorge@jooj.dev
-      if(Math.round(building.pos.posx) == Math.round(this.object.position.x) && Math.round(building.pos.posy) == Math.round(this.object.position.y)){
+      if(this.objetoCarregado == null) return; // Necessário checar aqui e antes do foreach, por questão de lógica. Estou com preguiça de explicar, qualquer coisa me pergunte no meu email jorge@jooj.dev
+
+      var playerX = this.object.position.x;
+      var playerY = this.object.position.y;
+      
+      if(playerX > building.deliveryPos.xmin && playerX < building.deliveryPos.xmax && playerY > building.deliveryPos.ymin && playerY < building.deliveryPos.ymax){
         building.blocks.forEach(block => {
           if(block.missingIndex == null) return;
           if(block.missingIndex != this.objetoCarregado.object.missingIndex) return;

@@ -2,10 +2,12 @@ import * as THREE from 'three';
 import { Object } from './Object.class.js';
 import Grass from '../resources/img/grass.jpg';
 import { Cube } from './Cube.class.js';
+import { Plane } from './Plane.class.js';
 
 export class Building {
   blocks = [];
   pos = {posx: 0, posy: 0, posz: 0};
+  deliveryPos = {xmin: 0, xmax: 0, ymin: 0, ymax: 0};
   size = {width: 3, height: 3};
   cubeSize = {width: 1, height: 1, depth: 1};
   ownership = null;
@@ -34,6 +36,23 @@ export class Building {
         }
         window.buildObjects.unshift(cube.object);
       }
+    }
+    this.setDeliveryPos();
+  }
+
+  setDeliveryPos(){
+    var planeX = this.pos.posx + 2;
+    var planeY = this.pos.posy - 1;
+    var planeWidth = this.size.width;
+    var planeDepth = 1;
+    var plane = new Plane({width: planeWidth, depth: planeDepth}, {x: planeX, y: planeY, z: this.pos.posz + 0.05}, 0x00ff00);
+    plane.addToScene(window.scene);
+
+    this.deliveryPos = {
+      xmin: this.pos.posx,
+      xmax: this.pos.posx + planeWidth - 1,
+      ymin: planeY,
+      ymax: planeY + planeDepth,
     }
   }
 
