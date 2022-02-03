@@ -19,9 +19,13 @@ document.addEventListener("keypress", function (event) {
     case 's':
       window.players[KEY_PLAYER1].accelX = -increment;
     break;
-      
+
     case 'd':
       window.players[KEY_PLAYER1].accelY = -increment;
+    break;
+
+    case 'x':
+      window.players[KEY_PLAYER1].dropCube();
     break;
     
     // PLAYER2

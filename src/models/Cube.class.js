@@ -5,7 +5,7 @@ export class Cube extends Object {
   pos = { posx: 0, posy: 0, posz: 0 };
   size = { width: 1, height: 1, depth: 1 };
   disabled = false;
-  lineIndex = null;
+  missingIndex = null;
 
   constructor(size, pos, color = 0x00ff00) {
     super();

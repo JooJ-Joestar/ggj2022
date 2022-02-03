@@ -32,9 +32,10 @@ export class Building {
         );
         if(numDisabled === x){
           cube.material.color.setHex(0x000000);
-          cube.lineIndex = y;
+          cube.missingIndex = y;
         }
         window.buildObjects.unshift(cube.object);
+        this.blocks.unshift(cube);
       }
     }
     this.setDeliveryPos();
@@ -50,7 +51,7 @@ export class Building {
 
     this.deliveryPos = {
       xmin: this.pos.posx,
-      xmax: this.pos.posx + planeWidth - 1,
+      xmax: this.pos.posx + planeWidth,
       ymin: planeY,
       ymax: planeY + planeDepth,
     }

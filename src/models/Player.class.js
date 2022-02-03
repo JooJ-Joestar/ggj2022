@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { TestCube } from './TestCube.class.js';
+import { Cube } from './Cube.class.js';
 
 export class Player extends TestCube {
   corOriginal = null;
@@ -43,6 +44,13 @@ export class Player extends TestCube {
     });
   }
 
+  dropCube(){
+    if(!this.objetoCarregado) return;
+    window.pickableEntities.unshift(this.objetoCarregado);
+    this.objetoCarregado.addToScene(window.scene);
+    this.objetoCarregado = null;
+  }
+
   depositCube(){
     if(this.objetoCarregado == null){
       // console.log('Falhou 1');
@@ -50,18 +58,17 @@ export class Player extends TestCube {
     }
     
     window.buildings.forEach((building, key) => {
-      if(this.objetoCarregado == null) return; // Necessário checar aqui e antes do foreach, por questão de lógica. Estou com preguiça de explicar, qualquer coisa me pergunte no meu email jorge@jooj.dev
+      if(!this.objetoCarregado == null) return; // Necessário checar aqui e antes do foreach, por questão de lógica. Estou com preguiça de explicar, qualquer coisa me pergunte no meu email jorge@jooj.dev
 
       var playerX = this.object.position.x;
       var playerY = this.object.position.y;
       
       if(playerX > building.deliveryPos.xmin && playerX < building.deliveryPos.xmax && playerY > building.deliveryPos.ymin && playerY < building.deliveryPos.ymax){
         building.blocks.forEach(block => {
-          if(block.missingIndex == null) return;
-          if(block.missingIndex != this.objetoCarregado.object.missingIndex) return;
-          block.material.color.sethex(window.colors[block.missingIndex]);
+          if(!this.objetoCarregado || block.missingIndex == null) return;
+          if(block.missingIndex != this.objetoCarregado.missingIndex) return;
+          block.material.color.setHex(window.colors[block.missingIndex]);
           this.objetoCarregado = null;
-          console.log('Cubo depositado');
         });
       }
     });
