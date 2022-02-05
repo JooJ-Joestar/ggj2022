@@ -6,6 +6,7 @@ export class Player extends TestCube {
   corOriginal = null;
   corObjeto = null;
   objetoCarregado = null;
+  lutando = false;
 
   constructor(pos = null, color = 0x00ff00) {
     super(pos, color);
@@ -69,8 +70,31 @@ export class Player extends TestCube {
           if(block.missingIndex != this.objetoCarregado.missingIndex) return;
           block.material.color.setHex(window.colors[block.missingIndex]);
           this.objetoCarregado = null;
+          block.missingIndex = null;
         });
       }
     });
+  }
+
+  static verificarSeLutando(){
+    if(window.players[1].lutando == true || window.players[2].lutando == true){
+      return;
+    }
+
+    var player1X = Math.round(window.players[1].object.position.x);
+    var player1Y = Math.round(window.players[1].object.position.y);
+
+    var player2X = Math.round(window.players[2].object.position.x);
+    var player2Y = Math.round(window.players[2].object.position.y);
+
+    if(player1X == player2X && player1Y == player2Y){
+      window.players[1].lutando = true;
+      window.players[1].accelX = 0;
+      window.players[1].accelY = 0;
+
+      window.players[2].lutando = true;
+      window.players[2].accelX = 0;
+      window.players[2].accelY = 0;
+    }
   }
 }

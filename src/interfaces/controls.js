@@ -7,43 +7,49 @@ document.addEventListener("keypress", function (event) {
   const keyName = event.key;
   // console.log('keydown event\n\n' + 'key: ' + keyName);
 
-  switch (keyName) {
-    case 'w':
-      window.players[KEY_PLAYER1].accelX = increment;
-    break;
-    
-    case 'a':
-      window.players[KEY_PLAYER1].accelY = increment;
-    break;
+  if(!window.players[1].lutando){
+    switch (keyName) {
+      case 'w':
+        window.players[KEY_PLAYER1].accelX = increment;
+      break;
       
-    case 's':
-      window.players[KEY_PLAYER1].accelX = -increment;
-    break;
+      case 'a':
+        window.players[KEY_PLAYER1].accelY = increment;
+      break;
+        
+      case 's':
+        window.players[KEY_PLAYER1].accelX = -increment;
+      break;
 
-    case 'd':
-      window.players[KEY_PLAYER1].accelY = -increment;
-    break;
+      case 'd':
+        window.players[KEY_PLAYER1].accelY = -increment;
+      break;
 
-    case 'x':
-      window.players[KEY_PLAYER1].dropCube();
-    break;
-    
-    // PLAYER2
-    case 'i':
-      window.players[KEY_PLAYER2].accelX = increment;
-    break;
-    
-    case 'j':
-      window.players[KEY_PLAYER2].accelY = increment;
-    break;
+      case 'x':
+        window.players[KEY_PLAYER1].dropCube();
+      break;
+    }
+  }
       
-    case 'k':
-      window.players[KEY_PLAYER2].accelX = -increment;
-    break;
+  if(!window.players[2].lutando){
+    switch (keyName) {
+      // PLAYER2
+      case 'i':
+        window.players[KEY_PLAYER2].accelX = increment;
+      break;
       
-    case 'l':
-      window.players[KEY_PLAYER2].accelY = -increment;
-    break;
+      case 'j':
+        window.players[KEY_PLAYER2].accelY = increment;
+      break;
+        
+      case 'k':
+        window.players[KEY_PLAYER2].accelX = -increment;
+      break;
+        
+      case 'l':
+        window.players[KEY_PLAYER2].accelY = -increment;
+      break;
+    }
   }
 });
 

@@ -93,7 +93,9 @@ function animate() {
   window.objects.forEach(object => {
     object.update();
   });
+  Player.verificarSeLutando();
 
   renderer.render(scene, camera);
 }
+
 animate();
