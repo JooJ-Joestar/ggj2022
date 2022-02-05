@@ -95,6 +95,10 @@ export class Player extends TestCube {
       window.players[2].lutando = true;
       window.players[2].accelX = 0;
       window.players[2].accelY = 0;
+
+      document.getElementById("player-1-combat-bar").style.width = "50%";
+      document.getElementById("player-2-combat-bar").style.width = "50%";
+      document.getElementById("combat-power-bar").style.display = "block";
     }
   }
 }

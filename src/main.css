@@ -60,3 +60,24 @@ table {
 	position: absolute;
 	text-align: center;
 }
+
+#combat-power-bar{
+	width: 54vw;
+	height: 30px;
+	margin-top: 50px;
+	margin-left: 23vw;
+	border: 2px solid red;
+	display: none;
+}
+	#combat-power-bar #player-1-combat-bar{
+		width: 50%;
+		height: 100%;
+		background: black;
+		float: left;
+	}
+	#combat-power-bar #player-2-combat-bar{
+		width: 50%;
+		height: 100%;
+		background: white;
+		float: left;
+	}
