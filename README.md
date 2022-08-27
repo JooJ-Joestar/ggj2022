@@ -1,5 +1,5 @@
 # ggj2022
-A vanilla Javascript game I worked on during and after Global Game Jam 2022. I used Three.js for 3D graphics and Weebpack for bundling everything.
+A vanilla Javascript game I worked on during and after Global Game Jam 2022. I used Three.js for 3D graphics and Webpack for bundling everything.
 
 This project (although unfinished) can give you a shallow, yet quick glimpse on my coding style and git messaging style.
 
